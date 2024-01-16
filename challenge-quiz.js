@@ -9,11 +9,12 @@
 //   * 
 //   * If the answer clicked was incorrect then subtract time from the clock DONE
 
-// * The quiz should end when all questions are answered or the timer reaches 0.
+// * The quiz should end when all questions are answered or the timer reaches 0. DONE
 
 //   * When the game ends, it should display their score and give the user the ability to save their initials and their score
 
 // 1. Creating a new quiz wed dev related questions/answers (basic)
+
 let questions = [
     {
         question: "What does CSS stand for?",
@@ -135,8 +136,9 @@ document.getElementById('submit').addEventListener('click', function() {
     let initialsInput = document.getElementById('initials');
     let initials = initialsInput.value.trim();
     if (initials) {
-        saveHighScore(initials, timeLeft);//fixing needed 
+        saveHighScore(initials, timeLeft);
         initialsInput.value = '';
+        window.location.href = 'highscores.html'; //adde link to the html
     }
 });
 
@@ -147,14 +149,16 @@ function saveHighScore(initials, score) {
     highscores.push({ initials, score });
     highscores.sort((a, b) => b.score - a.score);
     localStorage.setItem('highscores', JSON.stringify(highscores));
-    displayHighScores(); //fixing here needed 
+    // displayHighScores(); //fixing here needed 
 }
 
 //display the highscore for the user    
 
 function displayHighScores() {
-    let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+    // let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
     let highscoresList = document.getElementById('highscores');
+    if(highscoresList){
+        let highscores = JSON.parse(localStorage.getItem('highscores')) || []; //new line
     highscoresList.innerHTML = ''; //fixing here is needed 
     highscores.forEach(function(scoreEntry) {
     let li = document.createElement('li');
@@ -162,6 +166,7 @@ function displayHighScores() {
     highscoresList.appendChild(li);
     });
     }
+}
 
 //cleaning the highscores data
 
