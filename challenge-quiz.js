@@ -65,4 +65,25 @@ function showQuestion(){
 
     }
 
+// Timer update
 
+function checkAnswer(answer) {
+    if (answer !==questions[currentQuestionIndex].answer){
+        timeLeft -= 10; //penalty for answering incorrectly
+    }
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion()
+    } else {
+        endQuiz();
+    }
+}
+
+function updateTimer() {
+    if (timeLeft <= 0) {
+        endQuiz();
+        return; //the quiz will end when the time runs out
+    }
+    document.getElementById('time').textContent = timeLeft;
+    timeLeft--; //lessens the time
+}
