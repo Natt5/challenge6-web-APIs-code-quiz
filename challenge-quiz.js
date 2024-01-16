@@ -18,17 +18,17 @@ let questions = [
     {
         question: "What does CSS stand for?",
         choices: ["1. Computer Style Sheets", "2. Creative Style Sheets", "3. Cascading Style Sheets", "4. Colourful Style Sheets"],
-        answer: "Cascading Style Sheets"
+        answer: "3"
     },
     {
         question: "Which HTTP method is typically used to retrieve data from a server?",
         choices: ["1. POST", "2. GET", "3. PUT", "4. DELETE"],
-        answer: "GET"
+        answer: "2"
     },
     {
         question: "Which of the following is a valid way to declare a varriable in JavaScript?",
-        choices: ["1. let variableName;", "2. int variableName;", "3. var variableName;", "4. float variableName;"],
-        answer: "let variableName;"
+        choices: ["1. let variableName", "2. int variableName", "3. var variableName", "4. float variableName"],
+        answer: "1"
     }
 ];
 
@@ -78,27 +78,32 @@ function showQuestion() {
 
 function checkAnswer(answer) {
     let feedback = document.getElementById('feedback');
-    if (answer !== questions[currentQuestionIndex].answer) {
-        timeLeft -= 10; // Penalty for answering incorrectly
+
+    let chosenAnswerIndex = answer.charAt(0);
+    
+    if (chosenAnswerIndex !== questions[currentQuestionIndex].answer) {
+
+        timeLeft -= 10;
         feedback.textContent = "Wrong!";
         feedback.classList.remove('hide');
         console.log("Wrong answer, time penalty applied.");
     } else {
+
         feedback.textContent = "Correct!";
         feedback.classList.remove('hide');
         console.log("Correct answer!");
     }
 
-    // Hide the feedback after 1 second
     setTimeout(function() {
         feedback.classList.add('hide');
     }, 1000);
 
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-        // Add a delay before showing the next question so user can see feedback
+
         setTimeout(showQuestion, 1000);
     } else {
+
         setTimeout(endQuiz, 1000);
     }
 }
