@@ -77,23 +77,62 @@ function showQuestion() {
 
 // Timer update and feedback for answered questions
 
+// function checkAnswer(answer) {
+//     let feedback = document.getElementById('feedback');
+
+//     let chosenAnswerIndex = answer.charAt(0);
+    
+//     if (chosenAnswerIndex !== questions[currentQuestionIndex].answer) {
+
+//         timeLeft -= 10;
+//         feedback.textContent = "Wrong!";
+//         feedback.classList.remove('hide');
+//         console.log("Wrong answer, time penalty applied.");
+//     } else {
+
+//         feedback.textContent = "Correct!";
+//         feedback.classList.remove('hide');
+//         console.log("Correct answer!");
+//     }
+
+//     setTimeout(function() {
+//         feedback.classList.add('hide');
+//     }, 1000);
+
+//     currentQuestionIndex++;
+//     if (currentQuestionIndex < questions.length) {
+
+//         setTimeout(showQuestion, 1000);
+//     } else {
+
+//         setTimeout(endQuiz, 1000);
+//     }
+// }
+
+//new with sound
+
 function checkAnswer(answer) {
     let feedback = document.getElementById('feedback');
+    let correctSound = document.getElementById('correct-sound');
+    let wrongSound = document.getElementById('wrong-sound');
 
+    // Get the first character of the answer and compare with the correct answer
     let chosenAnswerIndex = answer.charAt(0);
     
     if (chosenAnswerIndex !== questions[currentQuestionIndex].answer) {
-
+        // Wrong answer
         timeLeft -= 10;
         feedback.textContent = "Wrong!";
-        feedback.classList.remove('hide');
+        wrongSound.play();  // Play wrong answer sound
         console.log("Wrong answer, time penalty applied.");
     } else {
-
+        // Correct answer
         feedback.textContent = "Correct!";
-        feedback.classList.remove('hide');
+        correctSound.play();  // Play correct answer sound
         console.log("Correct answer!");
     }
+
+    feedback.classList.remove('hide');
 
     setTimeout(function() {
         feedback.classList.add('hide');
@@ -101,10 +140,8 @@ function checkAnswer(answer) {
 
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-
         setTimeout(showQuestion, 1000);
     } else {
-
         setTimeout(endQuiz, 1000);
     }
 }
@@ -149,7 +186,7 @@ function saveHighScore(initials, score) {
     highscores.push({ initials, score });
     highscores.sort((a, b) => b.score - a.score);
     localStorage.setItem('highscores', JSON.stringify(highscores));
-    // displayHighScores(); //fixing here needed 
+    console.log("High scores after update:", highscores);
 }
 
 //display the highscore for the user    
@@ -210,3 +247,4 @@ document.addEventListener('DOMContentLoaded', function() {
         displayHighScores();
     }
 });
+
