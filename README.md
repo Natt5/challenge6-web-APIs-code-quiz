@@ -34,29 +34,35 @@ With only one click, users may launch the quiz, select their JavaScript question
 
 ### Deployment
 
-Deployment
-
 This project is deployed at a live URL and is accessible for public use.
 
-Link to the deployed Code Quiz application
+Link to the deployed  Web Development Web Quiz Application
 
-Screenshot of the Code Quiz Application in Action: 
+![Screenshot of the Web Development Web Quiz Application in Action](/quiz-screenshot.png)
 
 ### GitHub Repository
 
 The code and documentation are hosted on GitHub, following best practices in coding and documentation.
 
-Link to the GitHub repository for the Code Quiz Challenge
+![Link to the GitHub repository for the Web Development Web Quiz Application](https://github.com/Natt5/challenge6-web-APIs-code-quiz)
 
 ## Credits
 
 This project was inspired by coding challenges and boot camp exercises. Resources used in the development of this quiz include:
 
+[Adding Sound to JS](https://dev.to/colin-williams-dev/adding-sound-to-js-b3i)
+
 [Coding Boot Camp: Professional README Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide); An essential guide for creating comprehensive README files.
+
+[JavaScript Timers: Everything you need to know](https://www.freecodecamp.org/news/javascript-timers-everything-you-need-to-know-5f31eaa37162/)
 
 [MDN Web Docs: Web API Reference](https://developer.mozilla.org/en-US/docs/Web/API) A valuable resource for understanding web APIs, crucial in developing dynamic web applications.
 
+[USING LOCAL STORAGE FOR HIGH SCORES AND GAME PROGRESS](https://gamedevjs.com/articles/using-local-storage-for-high-scores-and-game-progress/)
+
 [W3Schools: JavaScript API Introduction](https://www.w3schools.com/js/js_api_intro.asp) Offers an introduction to APIs in JavaScript, providing foundational knowledge for this project.
+
+
 
 ## Licence
 
