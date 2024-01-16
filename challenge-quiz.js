@@ -38,7 +38,7 @@ function startQuiz (){
     currentQuestionIndex = 0;
     timeLeft= 60;
     document.getElementById('start-screen').style.display = 'none';
-    document.getElementbyId('questions').style.display = 'block';
+    document.getElementById('questions').style.display = 'block';
     showQuestion();
     timerInterval = setInterval(updateTimer, 1000);
 }
@@ -79,6 +79,8 @@ function checkAnswer(answer) {
     }
 }
 
+//Timer function
+
 function updateTimer() {
     if (timeLeft <= 0) {
         endQuiz();
@@ -98,3 +100,9 @@ function endQuiz () {
     document.getElementById('final-score').textContent = timeLeft; //displaying the score
     
 }
+
+document.getElementById('start').addEventListener('click', startQuiz);
+
+document.addEventListener('DOMContentLoaded', function() {
+//initialization code here
+});
