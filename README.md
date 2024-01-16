@@ -36,7 +36,7 @@ With only one click, users may launch the quiz, select their JavaScript question
 
 This project is deployed at a live URL and is accessible for public use.
 
-Link to the deployed  Web Development Web Quiz Application
+[Link to the deployed  Web Development Web Quiz Application](https://natt5.github.io/challenge6-web-APIs-code-quiz/index.html)
 
 ![Screenshot of the Web Development Web Quiz Application in Action](/quiz-screenshot.png)
 
