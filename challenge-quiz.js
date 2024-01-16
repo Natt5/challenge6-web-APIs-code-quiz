@@ -31,3 +31,16 @@ let questions = [
         answer: "let variableName;"
     }
 ];
+
+// Starting the quiz
+
+function startQuiz (){
+    currentQuestionIndex = 0;
+    timeLeft= 60;
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementbyId('questions').style.display = 'block';
+    showQuestion();
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+
