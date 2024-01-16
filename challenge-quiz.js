@@ -32,8 +32,6 @@ let questions = [
     }
 ];
 
-//fix 
-
 let currentQuestionIndex = 0;
 let timeLeft = 60;
 let timerInterval;
