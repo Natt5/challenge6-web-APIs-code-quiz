@@ -98,7 +98,7 @@ function endQuiz () {
     let endScreen = document.getElementById('end-screen');
     endScreen.style.display = 'block';
     document.getElementById('final-score').textContent = timeLeft; //displaying the score
-    document.getElementById('sudmit').addEventListener('click', function(){
+    document.getElementById('submit').addEventListener('click', function(){
         let initials = document.getElementById('initials').ariaValueMax;
         if (initials) {
             saveHighScore(inititals, timeLeft);
