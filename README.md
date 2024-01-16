@@ -44,7 +44,7 @@ Link to the deployed  Web Development Web Quiz Application
 
 The code and documentation are hosted on GitHub, following best practices in coding and documentation.
 
-![Link to the GitHub repository for the Web Development Web Quiz Application](https://github.com/Natt5/challenge6-web-APIs-code-quiz)
+[Link to the GitHub repository for the Web Development Web Quiz Application](https://github.com/Natt5/challenge6-web-APIs-code-quiz)
 
 ## Credits
 
