@@ -99,7 +99,7 @@ function endQuiz () {
     endScreen.style.display = 'block';
     document.getElementById('final-score').textContent = timeLeft; //displaying the score
     document.getElementById('submit').addEventListener('click', function(){
-        let initials = document.getElementById('initials').ariaValueMax;
+        let initials = document.getElementById('initials').value;
         if (initials) {
             saveHighScore(inititals, timeLeft);
         }
