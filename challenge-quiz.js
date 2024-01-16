@@ -17,17 +17,17 @@
 let questions = [
     {
         question: "What does CSS stand for?",
-        choices: ["Computer Style Sheets", "Creative Style Sheets", "Cascading Style Sheets", "Colourful Style Sheets"],
+        choices: ["1. Computer Style Sheets", "2. Creative Style Sheets", "3. Cascading Style Sheets", "4. Colourful Style Sheets"],
         answer: "Cascading Style Sheets"
     },
     {
         question: "Which HTTP method is typically used to retrieve data from a server?",
-        choices: ["POST", "GET", "PUT", "DELETE"],
+        choices: ["1. POST", "2. GET", "3. PUT", "4. DELETE"],
         answer: "GET"
     },
     {
         question: "Which of the following is a valid way to declare a varriable in JavaScript?",
-        choices: ["let variableName;", "int variableName;", "var variableName;", "float variableName;"],
+        choices: ["1. let variableName;", "2. int variableName;", "3. var variableName;", "4. float variableName;"],
         answer: "let variableName;"
     }
 ];
@@ -42,7 +42,7 @@ document.getElementById('start').addEventListener('click', startQuiz);
 // Starting the quiz
 
 function startQuiz() {
-    console.log("Quiz started"); // Debugging line
+    console.log("Quiz started"); // Debugging
     currentQuestionIndex = 0;
     timeLeft = 60;
     document.getElementById('start-screen').classList.add('hide');
@@ -51,7 +51,7 @@ function startQuiz() {
     timerInterval = setInterval(updateTimer, 1000);
 }
 
-// Showing questions part
+// Showing questions
 
 function showQuestion() {
     let question = questions[currentQuestionIndex];
@@ -74,22 +74,34 @@ function showQuestion() {
 
     }
 
-// Timer update
+// Timer update and feedback for answered questions
 
 function checkAnswer(answer) {
+    let feedback = document.getElementById('feedback');
     if (answer !== questions[currentQuestionIndex].answer) {
-    timeLeft -= 10; // Penalty for answering incorrectly
-    console.log("Wrong answer, time penalty applied.");
+        timeLeft -= 10; // Penalty for answering incorrectly
+        feedback.textContent = "Wrong!";
+        feedback.classList.remove('hide');
+        console.log("Wrong answer, time penalty applied.");
     } else {
-    console.log("Correct answer!");
+        feedback.textContent = "Correct!";
+        feedback.classList.remove('hide');
+        console.log("Correct answer!");
     }
+
+    // Hide the feedback after 1 second
+    setTimeout(function() {
+        feedback.classList.add('hide');
+    }, 1000);
+
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
-    showQuestion();
+        // Add a delay before showing the next question so user can see feedback
+        setTimeout(showQuestion, 1000);
     } else {
-    endQuiz();
+        setTimeout(endQuiz, 1000);
     }
-    }
+}
 
 //Timer function
 
