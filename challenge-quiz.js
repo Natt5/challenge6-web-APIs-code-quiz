@@ -43,4 +43,26 @@ function startQuiz (){
     timerInterval = setInterval(updateTimer, 1000);
 }
 
+// Showing questions part
+
+function showQuestion(){
+    let question = questions[currentQuestionIndex];
+    let questionTitle = document.getElementById('question-title');
+    let choicesContainer = document.getElementById('choices');
+
+    questionTitle.textContent = question.question;
+    choicesContainer.innerHTML = '';
+
+    question.choices.forEach(function(choice, i) {
+        let choiceButton = document.createElement('button');
+        choiceButton.textContent = choice;
+        choiceButton.className = 'choice';
+        choiceButton.addEventListener('click', function() {
+            checkAnswer (choice);
+        });
+        choicesContainer.appendChild(choiceButton);
+    });
+
+    }
+
 
